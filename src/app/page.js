@@ -506,8 +506,10 @@ export default function Home() {
                                             <div className="text-xl font-bold">
                                                 {earthquake ? `${earthquake.magnitude.toFixed(1)} Mag` : 'None Recently'}
                                             </div>
-                                            <div className="text-xs opacity-60">
-                                                {earthquake ? `${Math.round(earthquake.distance)}km away • ${new Date(earthquake.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : 'Local Seismic Activity'}
+                                            <div className="text-xs opacity-60 mt-1">
+                                                {earthquake ?
+                                                    `${earthquake.distance != null ? Math.round(earthquake.distance) + 'km away • ' : ''}${new Date(earthquake.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+                                                    : 'Local Seismic Activity'}
                                             </div>
                                         </div>
                                     </div>
